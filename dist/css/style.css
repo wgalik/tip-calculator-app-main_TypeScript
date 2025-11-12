@@ -93,11 +93,13 @@ main {
   align-self: end;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 2rem;
 }
 @media (min-width: 48rem) {
   main {
     flex-direction: row;
+    justify-content: flex-start;
     justify-self: center;
     align-self: start;
     border-radius: 2rem;

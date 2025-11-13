@@ -1,15 +1,18 @@
-console.log(11203);
-
 const billInput = document.getElementById("bill") as HTMLInputElement;
 const customInput = document.getElementById("custom") as HTMLInputElement;
 const peopleInput = document.getElementById("people") as HTMLInputElement;
 const tipButtons = document.querySelectorAll(".buttons button");
 
+const tipAmountContainer = document.querySelector("#amount h3");
+const totalResultContainer = document.querySelector("#total h3");
+
+const resetButton = document.getElementById("reset");
+
 let isActiveTip = false;
 
 const aggregateEventData = () => {
   let bill, customTip, people;
-
+  resetButton?.setAttribute("disabled", "disabled");
   if (peopleInput.valueAsNumber)
     people = Math.abs(Math.round(peopleInput.valueAsNumber * 100) / 100);
 
@@ -24,14 +27,30 @@ const aggregateEventData = () => {
     customTip = Number(value);
   }
 
-  showResults(bill, people, customTip);
+  calculateResult(bill, people, customTip);
 };
 
-const showResults = (bill = 0, people = 0, customTip = 0) => {
-  console.log("Wyniki:");
-  console.log(bill);
-  console.log(people);
-  console.log(customTip);
+const calculateResult = (bill = 0, people = 1, customTip = 0) => {
+  const tipPercentage = customTip / 100 + 1;
+  let tipAmount, totalResult;
+  if (!customTip) {
+    tipAmount = 0;
+    totalResult = Math.round((bill / people) * 100) / 100;
+  } else {
+    tipAmount =
+      Math.round(((bill * tipPercentage - bill) / people) * 100) / 100;
+    totalResult = Math.round(((bill * tipPercentage) / people) * 100) / 100;
+  }
+
+  showResults(tipAmount, totalResult);
+};
+
+const showResults = (tipAmount: number, totalResult: number) => {
+  if (totalResult !== 0) resetButton?.removeAttribute("disabled");
+  if (tipAmountContainer)
+    tipAmountContainer.innerHTML = `$${tipAmount.toFixed(2)}`;
+  if (totalResultContainer)
+    totalResultContainer.innerHTML = `$${totalResult.toFixed(2)}`;
 };
 
 billInput?.addEventListener("keyup", aggregateEventData);
@@ -43,7 +62,6 @@ customInput?.addEventListener("keyup", (event) => {
     document.querySelector(".active")?.classList.remove("active");
     isActiveTip = !isActiveTip;
   }
-  console.log(target.valueAsNumber);
   if (target.valueAsNumber < 1 || target.valueAsNumber > 100) {
     target.value = "";
   }
@@ -75,4 +93,15 @@ tipButtons.forEach((button) => {
     isActiveTip = true;
     aggregateEventData();
   });
+});
+
+resetButton?.addEventListener("click", () => {
+  billInput.value = "";
+  customInput.value = "";
+  peopleInput.value = "";
+  if (isActiveTip) {
+    document.querySelector(".active")?.classList.remove("active");
+    isActiveTip = false;
+  }
+  aggregateEventData();
 });

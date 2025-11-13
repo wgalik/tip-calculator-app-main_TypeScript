@@ -136,16 +136,14 @@ main {
     button {
       width: 100%;
       color: v.$Green900;
-      background-color: v.$Grey500;
+      background-color: v.$Green400;
       align-self: end;
-      transition: all 0.3s ease-in-out;
       margin-top: 1rem;
-      &:not(:disabled):hover {
-        background-color: v.$Green400;
-        color: v.$Green900;
+      &:active {
+        box-shadow: inset 0 0 3px v.$Green900;
       }
-      &:disabled:hover {
-        background-color: none;
+      &:disabled {
+        background-color: v.$Grey500;
         color: v.$Green900;
         cursor: auto;
       }

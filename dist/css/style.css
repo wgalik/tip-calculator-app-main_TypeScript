@@ -205,17 +205,15 @@ main #result div h6 span {
 main #result button {
   width: 100%;
   color: hsl(183, 100%, 15%);
-  background-color: hsl(186, 14%, 43%);
+  background-color: hsl(172, 67%, 45%);
   align-self: end;
-  transition: all 0.3s ease-in-out;
   margin-top: 1rem;
 }
-main #result button:not(:disabled):hover {
-  background-color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
+main #result button:active {
+  box-shadow: inset 0 0 3px hsl(183, 100%, 15%);
 }
-main #result button:disabled:hover {
-  background-color: none;
+main #result button:disabled {
+  background-color: hsl(186, 14%, 43%);
   color: hsl(183, 100%, 15%);
   cursor: auto;
 }

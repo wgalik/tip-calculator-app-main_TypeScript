@@ -33,7 +33,10 @@ input {
   background-position: 1rem center;
   background-size: 1rem;
   background-repeat: no-repeat;
-
+  padding: 0 1rem;
+  &::placeholder {
+    color: v.$Grey400;
+  }
   &:focus {
     appearance: none;
     outline: none;

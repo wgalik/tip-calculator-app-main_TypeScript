@@ -93,6 +93,10 @@ main {
           background-color: v.$Green400;
           color: v.$Green900;
         }
+        &.active {
+          background-color: v.$Green400;
+          color: v.$Green900;
+        }
       }
       input {
         width: 100%;
@@ -147,8 +151,4 @@ main {
       }
     }
   }
-}
-
-body{
-  
 }

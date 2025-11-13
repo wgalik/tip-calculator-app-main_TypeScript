@@ -36,6 +36,13 @@ input {
   background-position: 1rem center;
   background-size: 1rem;
   background-repeat: no-repeat;
+  padding: 0 1rem;
+}
+input::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+}
+input::placeholder {
+  color: hsl(184, 14%, 56%);
 }
 input:focus {
   -webkit-appearance: none;
@@ -54,5 +61,4 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-
 /*# sourceMappingURL=reset.css.map */

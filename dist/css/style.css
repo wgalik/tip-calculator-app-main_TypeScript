@@ -37,6 +37,13 @@ input {
   background-position: 1rem center;
   background-size: 1rem;
   background-repeat: no-repeat;
+  padding: 0 1rem;
+}
+input::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+}
+input::placeholder {
+  color: hsl(184, 14%, 56%);
 }
 input:focus {
   -webkit-appearance: none;
@@ -153,6 +160,10 @@ main #form .buttons button {
   transition: all 0.3s ease-in-out;
 }
 main #form .buttons button:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+main #form .buttons button.active {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }

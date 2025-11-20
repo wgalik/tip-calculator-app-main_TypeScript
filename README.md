@@ -4,7 +4,7 @@ A responsive Tip Calculator built with HTML, SCSS (with PostCSS), and TypeScript
 
 ## Demo
 
-[Live demo link:](https://wgalik.github.io/tip-calculator-app-main/)
+[Live demo link:](https://wgalik.github.io/tip-calculator-app-main_TypeScript/)
 
 ## Features
 
